@@ -1,31 +1,32 @@
-const numbers = [1, 2, 3, 4, 5];
-function sumFor(number) {
+const numbers = [2, 3, 4, 5, 6];
+
+function sumFor(num) {
   let sum = 0;
-  for (const integer of number) {
-    sum += integer;
+  for (const int of num) {
+    sum += int;
   }
   return sum;
 }
 
-function sumWhile(number) {
+function sumWhile(num) {
   let count = 0;
   let sum = 0;
-  while (count < number.length) {
-    sum += number[count];
+  while (count < num.length) {
+    sum += num[count];
     count++;
   }
   return sum;
 }
 
-function sumRecursion(number) {
-  if (number.length === 0) {
+function sumRecursion(num) {
+  if (num.length === 0) {
     return 0;
   }
-  return sumRecursion(_.rest(number)) + number[0];
+  return sumRecursion(num.slice(1, num.length)) + num[0];
 }
 
 function sumTheSimpleWay(number) {
-  return _.reduce(number, (memo, num) => memo + num);
+  return _.reduce(number, (memo, num) => memo + num, 0);
 }
 console.log(sumFor(numbers));
 console.log(sumWhile(numbers));
